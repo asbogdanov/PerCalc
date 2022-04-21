@@ -1,3 +1,5 @@
 # PerCalc
-## Automatic calculator of different calculations with %
+## Автоматическое вычисление % от числа
+
+Приложение позволяет рассчитывать процент от числа и выводит результат в текстовом виде
 ![Picture](PerCalc.jpg)

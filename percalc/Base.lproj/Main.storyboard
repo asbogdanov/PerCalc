@@ -118,7 +118,9 @@
                     <connections>
                         <outlet property="TFNumber" destination="7Pm-aa-sNy" id="p9Q-eF-BjJ"/>
                         <outlet property="TFPercent" destination="eSo-5Y-gqI" id="y36-A5-lNU"/>
+                        <outlet property="cancelButton" destination="Tqa-Sh-G9Z" id="Dhd-FW-Hsj"/>
                         <outlet property="labelResult" destination="McO-3R-OaX" id="Vz5-7q-s4w"/>
+                        <outlet property="okButton" destination="Zrz-tO-G4c" id="uJm-vQ-3PT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

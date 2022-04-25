@@ -13,19 +13,26 @@ class ViewController: UIViewController {
     @IBOutlet weak var TFNumber: UITextField!
 
     @IBOutlet weak var labelResult: UILabel!
+    @IBOutlet weak var cancelButton: UIButton! {
+        didSet{
+            cancelButton.layer.cornerRadius = 10
+        }
+    }
+    @IBOutlet weak var okButton: UIButton! {
+        didSet{
+            okButton.layer.cornerRadius = 10
+        }
+    }
 
     @IBAction func buttonOK(_ sender: UIButton) {
 
-//        guard let percent = TFPercent.text, let number = TFNumber.text else { return }
-//        var percentTF = Double(percent)
-//        var numberTF = Double(number)
-//        var result = labelResult.text
+        if let percent = TFPercent.text, let number = TFNumber.text, percent.isEmpty || number.isEmpty {
 
-        if TFPercent.text!.isEmpty || TFNumber.text!.isEmpty {
-            labelResult.text = "Необходимо заполнить все поля."
-        } else {
-            labelResult.text = "\(TFPercent.text!)% от числа \(TFNumber.text!) = \((Double(TFNumber.text!)!) * 0.01 * (Double(TFPercent.text!)!))"
-        }
+        let alert = UIAlertController(title: "Не заполнено поле", message: "Пожалуйста, заполните все поля.", preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        } else { return labelResult.text = "\(TFPercent.text!)% от числа \(TFNumber.text!) = \((Double(TFNumber.text!)!) * 0.01 * (Double(TFPercent.text!)!))" }
     }
 
     @IBAction func buttonCancel(_ sender: UIButton) {
@@ -40,6 +47,6 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
+     }
 }
 

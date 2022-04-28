@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var TFPercent: UITextField!
     @IBOutlet weak var TFNumber: UITextField!
@@ -16,12 +16,16 @@ class ViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton! {
         didSet{
             cancelButton.layer.cornerRadius = 10
+            cancelButton.frame.size = CGSize(width: 100, height: 60)
+
         }
     }
     @IBOutlet weak var okButton: UIButton! {
         didSet{
             okButton.layer.cornerRadius = 10
+            okButton.frame.size = CGSize(width: 100, height: 60)
         }
+
     }
 
     @IBAction func buttonOK(_ sender: UIButton) {
@@ -47,6 +51,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
      }
+
+    override func canPerformAction(
+        _ action: Selector, withSender sender: Any?) -> Bool {
+          return super.canPerformAction(action, withSender: sender)
+          && (action == #selector(UIResponderStandardEditActions.cut)
+          || action == #selector(UIResponderStandardEditActions.copy))
+      }
 }
+
+
+
 

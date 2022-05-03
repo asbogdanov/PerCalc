@@ -91,6 +91,12 @@
                                     <action selector="buttonCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PxJ-Ie-SJm"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-nr-LbK">
+                                <rect key="frame" x="20" y="107" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -125,8 +131,12 @@
                         <outlet property="TFNumber" destination="7Pm-aa-sNy" id="p9Q-eF-BjJ"/>
                         <outlet property="TFPercent" destination="eSo-5Y-gqI" id="y36-A5-lNU"/>
                         <outlet property="cancelButton" destination="Tqa-Sh-G9Z" id="Dhd-FW-Hsj"/>
+                        <outlet property="firstLabel" destination="Vtl-8J-9Wl" id="dn5-mJ-jO4"/>
                         <outlet property="labelResult" destination="McO-3R-OaX" id="Vz5-7q-s4w"/>
                         <outlet property="okButton" destination="Zrz-tO-G4c" id="uJm-vQ-3PT"/>
+                        <outlet property="percentLabel" destination="dTk-H6-lDE" id="pfH-7g-OAd"/>
+                        <outlet property="secondLabel" destination="fFJ-ww-YUc" id="yUC-B8-ZxT"/>
+                        <outlet property="selectOperation" destination="Zrg-nr-LbK" id="3WB-Zd-tgm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

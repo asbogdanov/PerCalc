@@ -60,7 +60,6 @@ class ViewController: UIViewController {
         pickerView.dataSource = self
 
         selectOperation.inputView = pickerView
-//        createToolBar()
      }
 
 
@@ -123,26 +122,6 @@ class ViewController: UIViewController {
 
         view.endEditing(true) //убирает клавиатуру при нажатии кнопки "Сброс"
     }
-
-    // создание кнопки "Готово" на pickerView
-//    func createToolBar() {
-//        let toolbar = UIToolbar()
-//        toolbar.sizeToFit()
-//
-//        let doneButton = UIBarButtonItem(title: "Готово",
-//                                         style: .plain,
-//                                         target: self,
-//                                         action: #selector(dismissKeyboard))
-//
-//        toolbar.setItems([doneButton], animated: true)
-//        toolbar.isUserInteractionEnabled = true
-//
-//        selectOperation.inputAccessoryView = toolbar
-//    }
-//
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
 
     // Метод скрытия клавиатуры при нажатии на любое место на экране
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -211,6 +190,14 @@ class TextField: UITextField {
             return false
         }
         return super.canPerformAction(action, withSender: sender)
+    }
+}
+
+//отключение мигающего курсора
+class SelectOperation: UITextField {
+
+    override func caretRect(for position: UITextPosition) -> CGRect {
+        return CGRect.zero
     }
 }
 

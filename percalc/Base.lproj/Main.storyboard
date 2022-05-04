@@ -91,7 +91,7 @@
                                     <action selector="buttonCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PxJ-Ie-SJm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-nr-LbK">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-nr-LbK" customClass="SelectOperation" customModule="percalc" customModuleProvider="target">
                                 <rect key="frame" x="20" y="107" width="374" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="374" id="dRB-8Q-abD"/>

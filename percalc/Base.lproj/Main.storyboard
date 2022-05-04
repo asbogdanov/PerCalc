@@ -19,7 +19,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sun" translatesAutoresizingMaskIntoConstraints="NO" id="TBE-A9-9S7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите число" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-5Y-gqI">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите число" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eSo-5Y-gqI" customClass="TextField" customModule="percalc" customModuleProvider="target">
                                 <rect key="frame" x="127.5" y="240" width="159" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="9iR-9o-Yhd"/>
@@ -27,7 +27,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите число" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Pm-aa-sNy">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Введите число" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="7Pm-aa-sNy" customClass="TextField" customModule="percalc" customModuleProvider="target">
                                 <rect key="frame" x="127.5" y="354" width="159" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="159" id="ais-To-svT"/>
@@ -91,9 +91,11 @@
                                     <action selector="buttonCancel:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PxJ-Ie-SJm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-nr-LbK">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zrg-nr-LbK">
                                 <rect key="frame" x="20" y="107" width="374" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="374" id="dRB-8Q-abD"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -105,6 +107,7 @@
                             <constraint firstItem="eSo-5Y-gqI" firstAttribute="top" secondItem="Vtl-8J-9Wl" secondAttribute="bottom" constant="35.5" id="2XZ-u5-PXc"/>
                             <constraint firstItem="Tqa-Sh-G9Z" firstAttribute="top" secondItem="Zrz-tO-G4c" secondAttribute="top" id="85G-iY-dNU"/>
                             <constraint firstItem="Zrz-tO-G4c" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="AXE-5S-tqI"/>
+                            <constraint firstItem="TBE-A9-9S7" firstAttribute="top" secondItem="Zrg-nr-LbK" secondAttribute="bottom" constant="-141" id="FqT-Pd-7Vo"/>
                             <constraint firstAttribute="bottom" secondItem="TBE-A9-9S7" secondAttribute="bottom" id="J1q-pz-cA2"/>
                             <constraint firstItem="dTk-H6-lDE" firstAttribute="leading" secondItem="eSo-5Y-gqI" secondAttribute="trailing" constant="8.5" id="JHb-OL-TKu"/>
                             <constraint firstItem="Tqa-Sh-G9Z" firstAttribute="bottom" secondItem="Zrz-tO-G4c" secondAttribute="bottom" id="Kod-8z-A38"/>
@@ -112,11 +115,13 @@
                             <constraint firstItem="7Pm-aa-sNy" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="O8f-ju-QY6"/>
                             <constraint firstItem="Tqa-Sh-G9Z" firstAttribute="leading" secondItem="Zrz-tO-G4c" secondAttribute="trailing" constant="74" id="P54-YO-BIo"/>
                             <constraint firstItem="TBE-A9-9S7" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Poi-LF-N6D"/>
+                            <constraint firstItem="Vtl-8J-9Wl" firstAttribute="top" secondItem="Zrg-nr-LbK" secondAttribute="bottom" constant="43" id="SMl-Ec-Nh2"/>
                             <constraint firstItem="Vtl-8J-9Wl" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="140" id="SWM-5M-v1g"/>
                             <constraint firstItem="dTk-H6-lDE" firstAttribute="top" secondItem="Vtl-8J-9Wl" secondAttribute="bottom" constant="42.5" id="WPl-AU-zO9"/>
                             <constraint firstItem="Zrz-tO-G4c" firstAttribute="top" secondItem="McO-3R-OaX" secondAttribute="bottom" constant="46.5" id="fPd-ul-bHg"/>
                             <constraint firstItem="Vtl-8J-9Wl" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="gRd-Bs-qhv"/>
                             <constraint firstItem="McO-3R-OaX" firstAttribute="top" secondItem="7Pm-aa-sNy" secondAttribute="bottom" constant="45" id="gdh-n3-Fyl"/>
+                            <constraint firstItem="Zrg-nr-LbK" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="mgC-mq-xe9"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Tqa-Sh-G9Z" secondAttribute="trailing" constant="20" id="pSy-Gd-FQL"/>
                             <constraint firstItem="Tqa-Sh-G9Z" firstAttribute="width" secondItem="Zrz-tO-G4c" secondAttribute="width" id="q6I-Va-5f9"/>
                             <constraint firstItem="fFJ-ww-YUc" firstAttribute="top" secondItem="eSo-5Y-gqI" secondAttribute="bottom" constant="30" id="qVK-8O-Bfj"/>

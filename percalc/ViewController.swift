@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         pickerView.dataSource = self
 
         selectOperation.inputView = pickerView
-        createToolBar()
+//        createToolBar()
      }
 
 
@@ -91,7 +91,7 @@ class ViewController: UIViewController {
 
             case 2:
                 let calcValue = calcAddPercentToNumber(number: number, percent: percent)
-                labelResult.text = "\(TFNumber.text!) + \(TFPercent.text!)% = \(calcValue)%"
+                labelResult.text = "\(TFNumber.text!) + \(TFPercent.text!)% = \(calcValue)"
                 break
 
             default:
@@ -125,24 +125,24 @@ class ViewController: UIViewController {
     }
 
     // создание кнопки "Готово" на pickerView
-    func createToolBar() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-
-        let doneButton = UIBarButtonItem(title: "Готово",
-                                         style: .plain,
-                                         target: self,
-                                         action: #selector(dismissKeyboard))
-
-        toolbar.setItems([doneButton], animated: true)
-        toolbar.isUserInteractionEnabled = true
-
-        selectOperation.inputAccessoryView = toolbar
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+//    func createToolBar() {
+//        let toolbar = UIToolbar()
+//        toolbar.sizeToFit()
+//
+//        let doneButton = UIBarButtonItem(title: "Готово",
+//                                         style: .plain,
+//                                         target: self,
+//                                         action: #selector(dismissKeyboard))
+//
+//        toolbar.setItems([doneButton], animated: true)
+//        toolbar.isUserInteractionEnabled = true
+//
+//        selectOperation.inputAccessoryView = toolbar
+//    }
+//
+//    @objc func dismissKeyboard() {
+//        view.endEditing(true)
+//    }
 
     // Метод скрытия клавиатуры при нажатии на любое место на экране
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,6 +203,15 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     }
 }
 
+//отключена функция Paste при долгом нажатии на поле для ввода текста
+class TextField: UITextField {
 
+    override func canPerformAction(_ action: Selector, withSender sender: Any?) -> Bool {
+        if action == #selector(UIResponderStandardEditActions.paste(_:)) {
+            return false
+        }
+        return super.canPerformAction(action, withSender: sender)
+    }
+}
 
 

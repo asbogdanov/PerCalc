@@ -64,7 +64,7 @@ class ViewController: UIViewController {
         pickerView.backgroundColor = .white
 
         selectOperation.inputView = pickerView
-     }
+    }
 
     @IBAction func buttonOK(_ sender: UIButton) {
 

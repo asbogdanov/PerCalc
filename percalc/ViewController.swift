@@ -11,7 +11,9 @@ class ViewController: UIViewController {
 
     var uiElements = ["Нахождение % от числа",
                       "Сколько % составляет число от числа",
-                      "Прибавить % к числу"]
+                      "Прибавить % к числу",
+                      "Выделить НДС",
+                      "Начислить НДС"]
 
     var pickerView = UIPickerView()
 
@@ -56,12 +58,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
         pickerView.delegate = self
         pickerView.dataSource = self
+        pickerView.backgroundColor = .white
 
         selectOperation.inputView = pickerView
      }
-
 
     @IBAction func buttonOK(_ sender: UIButton) {
 
@@ -76,6 +79,7 @@ class ViewController: UIViewController {
 
             let number = (Double(TFNumber.text!)!)
             let percent = (Double(TFPercent.text!)!)
+            let resultOfVAT = Double()
 
             switch selectedIndex {
             case 0:
@@ -91,6 +95,24 @@ class ViewController: UIViewController {
             case 2:
                 let calcValue = calcAddPercentToNumber(number: number, percent: percent)
                 labelResult.text = "\(TFNumber.text!) + \(TFPercent.text!)% = \(calcValue)"
+                break
+
+            case 3:
+                let calcValue = calcMinusVAT(number: number, percent: percent)
+                let calcVAT = calcVATFromMinusVAT(number: number, percent: percent, result: resultOfVAT)
+                labelResult.text =  """
+                                    Сумма без НДС = \(calcValue)
+                                    Сумма НДС = \(calcVAT)
+                                    """
+                break
+
+            case 4:
+                let calcValue = calcPlusVAT(number: number, percent: percent)
+                let calcVAT = calcVATFromPlusVAT(number: number, percent: percent, result: resultOfVAT)
+                labelResult.text =  """
+                                    Сумма с НДС = \(calcValue)
+                                    Сумма НДС = \(calcVAT)
+                                    """
                 break
 
             default:
@@ -112,6 +134,30 @@ class ViewController: UIViewController {
     func calcAddPercentToNumber (number: Double, percent: Double) -> Double {
         let result = number * (1 + percent / 100)
         return result
+    }
+
+    func calcMinusVAT (number: Double, percent: Double) -> Double {
+        var result = number / (1 + percent / 100)
+        result = (result * 100).rounded() / 100
+        return result
+    }
+
+    func calcVATFromMinusVAT (number: Double, percent: Double, result: Double) -> Double {
+        var resultOfVAT = number - (number / (1 + percent / 100))
+        resultOfVAT = (resultOfVAT * 100).rounded() / 100
+        return resultOfVAT
+    }
+
+    func calcPlusVAT (number: Double, percent: Double) -> Double {
+        var result = number * (1 + percent / 100)
+        result = (result * 100).rounded() / 100
+        return result
+    }
+
+    func calcVATFromPlusVAT (number: Double, percent: Double, result: Double) -> Double {
+        var resultOfVAT = (number * (1 + percent / 100)) - number
+        resultOfVAT = (resultOfVAT * 100).rounded() / 100
+        return resultOfVAT
     }
 
     @IBAction func buttonCancel(_ sender: UIButton) {
@@ -173,6 +219,24 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
             percentLabel.isHidden = false
             firstLabel.text = "Прибавить"
             secondLabel.text = "к числу"
+
+            break
+
+        case 3:
+            percentLabel.isHidden = false
+            firstLabel.isHidden = false
+            secondLabel.isHidden = false
+            firstLabel.text = "Ставка НДС"
+            secondLabel.text = "Выделить НДС от числа"
+
+            break
+
+        case 4:
+            percentLabel.isHidden = false
+            firstLabel.isHidden = false
+            secondLabel.isHidden = false
+            firstLabel.text = "Ставка НДС"
+            secondLabel.text = "Начислить НДС к числу"
 
             break
 
